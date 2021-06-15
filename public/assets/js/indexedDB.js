@@ -1,6 +1,6 @@
 let db;
 let databaseName = 'budget';
-let storeName = "pending";
+let storeName = "pending";  //pending to save in the database budget
 let txStoreName = ["pending"];
   
 // Create a new db request for a "budget" database.
@@ -11,7 +11,8 @@ req.onupgradeneeded = function(e) {
     // create object store called "BudgetStore" and set autoIncrement to true
   const db = e.target.result;
     // Creates an object store with a listID keypath that can be used to query on.
-  db.createObjectStore(storeName, { keyPath: "_id", autoIncrement: true });
+  // db.createObjectStore(storeName, { keyPath: "_id", autoIncrement: true });
+  db.createObjectStore(storeName, { autoIncrement: true });
 };
   
 req.onerror = function(e) {
