@@ -21,7 +21,7 @@ const config = {
       theme_color: "#ffffff",
       start_url: "/",
       icons: [{
-        src: path.resolve("ppublic/assets/images/icons/icon-192x192.png"),
+        src: path.resolve("public/assets/images/icons/icon-192x192.png"),
         sizes: [96, 128, 192, 256, 384, 512],
         destination: path.join("assets", "icons")
       }]
