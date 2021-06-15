@@ -2,9 +2,9 @@ const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 
 const config = {
-  mode: "develpment",
+  mode: "development",
   entry: {
-    app: "./public/index.js",
+    app: "./public/js/index.js",
   },
   output: {
     path: __dirname + "/public/dist",
@@ -14,16 +14,16 @@ const config = {
     new WebpackPwaManifest({
       fingerprints: false,
       inject: false,
-      name: "Transaction App",
-      short_name: "Transaction App",
+      name: "Images App",
+      short_name: "Images App",
       description: "An application for transaction",
       background_color: "#01579b",
       theme_color: "#ffffff",
       start_url: "/",
       icons: [{
-        src: path.resolve("public/icons/icon-192x192.png"),
+        src: path.resolve("ppublic/assets/images/icons/icon-192x192.png"),
         sizes: [96, 128, 192, 256, 384, 512],
-        destination: path.join("", "icons")
+        destination: path.join("assets", "icons")
       }]
     })
   ],
