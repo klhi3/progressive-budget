@@ -1,7 +1,7 @@
 let db;
 let databaseName = 'budget';
-let storeName = "BudgetStore";
-let txStoreName = ["BudgetStore"];
+let storeName = "pending";
+let txStoreName = ["pending"];
   
 // Create a new db request for a "budget" database.
 const req= indexedDB.open(databaseName, 1);
