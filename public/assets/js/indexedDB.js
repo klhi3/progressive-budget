@@ -12,7 +12,7 @@ req.onupgradeneeded = function(e) {
   const db = e.target.result;
     // Creates an object store with a listID keypath that can be used to query on.
   // db.createObjectStore(storeName, { keyPath: "_id", autoIncrement: true });
-  db.createObjectStore(storeName, { autoIncrement: true });
+  db.createObjectStore(storeName, { autoIncrement: true });  // update pending offline objects
 };
   
 req.onerror = function(e) {

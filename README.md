@@ -19,6 +19,9 @@ This Budget tracker application is to allow for offline access and functionality
 
 2. to track my withdrawals and deposits with or without a data/internet connection for accurated account balance
 
+## Portfolio
+<br>
+<img src="./public/assets/images/page.gif" width="300" />
 
 ## Deploy
 
