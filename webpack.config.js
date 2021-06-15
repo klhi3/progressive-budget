@@ -4,7 +4,7 @@ const path = require("path");
 const config = {
   mode: "development",
   entry: {
-    app: "./public/js/index.js",
+    app: "./public/assets/js/index.js",
   },
   output: {
     path: __dirname + "/public/dist",
