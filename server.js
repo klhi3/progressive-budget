@@ -21,7 +21,13 @@ mongoose.connect(
   useFindAndModify: false,
   useUnifiedTopology: true,
   // useCreateIndex: true,
+}).then(()=> {
+  console.log("connection to Database established");
+}).catch(e => {
+  console.log(`Database error ${e.message}`);
+  process.exit(-1)
 });
+
 
 // routes
 app.use(require("./routes/api.js"));
