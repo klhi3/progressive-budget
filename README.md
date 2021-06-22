@@ -1,7 +1,7 @@
 # Progressive Budget Trackers
 
 
-This Budget tracker application is to allow for offline access and functionality for a fast and easy way to track traveler's money  any time
+This Budget Tracker application is to allow for offline access and functionality for a fast and easy way to track traveler's money  any time
 
 ## Features
 
