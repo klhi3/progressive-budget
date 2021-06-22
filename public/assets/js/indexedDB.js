@@ -23,14 +23,14 @@ req.onerror = function(e) {
 req.onsuccess = function(e) {
   console.log("indexedDB: req.onsuccess");
   // db = e.target.result;
-  if (navigator.online) checkDatabase();
+  if (navigator.online) getDb();
 };
 
-
-function checkDatabase() {
+// read from database
+function getDb() {
     // const db = e.target.result;
     const db = req.result;
-    console.log("indexedDB: checkDatabased");
+    console.log("indexedDB: getDb - read from Database");
     const tx = db.transaction(["pending"], "readwrite");
     const store = tx.objectStore("pending");
     const getAll = store.getAll();
@@ -62,7 +62,8 @@ function checkDatabase() {
       };
   };
 
-// called index.js
+// network offline 
+// called from index.js
 export function saveRecord(r) {
   console.log("=====> indexedDB: saveRecord");
   db = req.result;
@@ -73,4 +74,4 @@ export function saveRecord(r) {
 };
 
   // listen for app coming back online
-window.addEventListener('online', checkDatabase);
+window.addEventListener('online', getDb);
