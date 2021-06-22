@@ -22,7 +22,10 @@ const FILES_TO_CACHE = [
     event.waitUntil(
       caches
         .open(STATIC_CACHE)
-        .then(cache => cache.addAll(FILES_TO_CACHE))
+        .then(cache => { 
+          console.log(">>>>>>> addAll");
+           cache.addAll(FILES_TO_CACHE);
+          })
         .then(() => self.skipWaiting())
     );
   });
@@ -42,6 +45,7 @@ const FILES_TO_CACHE = [
         .then(cachesToDelete => {
           return Promise.all(
             cachesToDelete.map(cacheToDelete => {
+              console.log(">>>>> delet : "+cacheToDelete );
               return caches.delete(cacheToDelete);
             })
           );

@@ -11,6 +11,8 @@
 //     });
 // }
 
+import { saveRecord } from "./indexedDB.js";
+
 // original
 let transactions = [];
 let myChart;
@@ -150,6 +152,8 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
+    console.log(">>>> fetch failed then saved indexed db: ");
+    console.dir(transaction);
     saveRecord(transaction);
 
     // clear form
