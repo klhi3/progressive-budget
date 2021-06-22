@@ -1,10 +1,7 @@
 let db;
-let databaseName = 'budget';
-let storeName = "pending";  //pending to save in the database budget
-let txStoreName = ["pending"];
   
 // Create a new db request for a "budget" database.
-const req = indexedDB.open(databaseName, 1);
+const req = indexedDB.open('budget', 1);
 
 req.onupgradeneeded = function(e) {
   console.log("indexedDB: onupgradeneeded");
@@ -16,7 +13,7 @@ req.onupgradeneeded = function(e) {
 
     // Creates an object store with a listID keypath that can be used to query on.
   // db.createObjectStore(storeName, { keyPath: "_id", autoIncrement: true });
-  db.createObjectStore(storeName, { autoIncrement: true });  // update pending offline objects
+  db.createObjectStore("pending", { autoIncrement: true });  // update pending offline objects
 };
   
 req.onerror = function(e) {
@@ -34,8 +31,8 @@ function checkDatabase() {
     // const db = e.target.result;
     const db = req.result;
     console.log("indexedDB: checkDatabased");
-    const tx = db.transaction(txStoreName, "readwrite");
-    const store = tx.objectStore(storeName);
+    const tx = db.transaction(["pending"], "readwrite");
+    const store = tx.objectStore("pending");
     const getAll = store.getAll();
 
     getAll.onsuccess = function () {
@@ -53,8 +50,8 @@ function checkDatabase() {
             // if successful, open a transaction on your pending db
             // access your pending object store
             // clear all items in your store
-            const tx = db.transaction(txStoreName,"readwrite");
-            const store = tx.objectStore(storeName);
+            const tx = db.transaction(["pending"],"readwrite");
+            const store = tx.objectStore("pending");
 
             let req = store.clear();
             req.onsuccess = function() {
@@ -68,8 +65,7 @@ function checkDatabase() {
 // called index.js
 export function saveRecord(r) {
   console.log("=====> indexedDB: saveRecord");
-  const db = req.result;
-
+  db = req.result;
   const tx = db.transaction(["pending"], "readwrite");
   const store = tx.objectStore("pending");
   store.add(r);
